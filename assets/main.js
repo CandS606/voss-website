@@ -6,4 +6,14 @@ document.addEventListener('DOMContentLoaded', function () {
       menu.classList.toggle('open');
     });
   }
+
+  document.querySelectorAll('.capability-request').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (typeof gtag === 'function') {
+        gtag('event', 'capability_statement_request_click', {
+          page_path: window.location.pathname
+        });
+      }
+    });
+  });
 });
